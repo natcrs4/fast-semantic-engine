@@ -1,0 +1,168 @@
+/* TODO
+ * - polish UI 
+ *   - remove placeholder
+ *   - add search button
+ */
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700");
+body {
+  margin: 4em;
+  background: slategray;
+  color: snow;
+}
+
+form {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.wrapper {
+  max-width: 60em;
+  margin: 0 auto;
+}
+
+#search {
+  padding: 1em 0;
+  text-align: center;
+  border: solid 1px slategray;
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  border-radius: 1em;
+}
+
+form .button {
+  display: block;
+  color: #fff;
+  width: 35%;
+  margin: 0 auto;
+  background: rgba(3, 3, 3, 0.1);
+  padding: 0.25em 0;
+  text-decoration: none;
+  border-radius: 0 0 1em 1em;
+  border: solid 1px rgba(3, 3, 3, 0.1);
+  border-top: none;
+}
+
+
+form a:hover {
+  border: solid 1px greenyellow;
+  border-top: none;
+}
+
+#search:focus {
+  border: solid 1px greenyellow;
+  outline: none;
+}
+
+.result {
+  background: rgba(3, 3, 3, 0.1);
+  padding: 1em;
+  margin: 1em 0;
+  display: block;
+  text-decoration: none;
+  color: snow;
+  border: solid 1px rgba(3, 3, 3, 0.1);
+  clear: both;
+  border-radius: 1em;
+}
+.trainable {
+
+  color: chartreuse;
+  
+}
+
+.result h3 {
+  margin: 0 0 1em 0;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px #333;
+  font-family: "Lato", sans-serif;
+}
+
+.result p {
+  margin: 0;
+}
+
+.result:hover {
+  border: solid 1px greenyellow;
+}
+
+.searchmatch {
+  color: greenyellow;
+}
+
+.per {
+	background-color:teal;
+	color:red
+}
+.gpe {
+	background-color: yellow;:aqua;
+	color:green
+}
+
+.org {
+	 background-color:silver;
+	color:blue
+}
+.loc {
+	 background-color:greenyellow;
+	color:purple
+}
+.container {
+  display: inline-block;
+  position: relative;
+}
+.index {
+  cursor: pointer;
+  display: inline;
+  margin-right: 30px;
+  padding: 5px;
+  user-select: none;
+  -moz-user-select: none;
+}
+.index:last-child {
+  margin: 0;
+}
+svg {
+  left: -13px;
+  position: absolute;
+  top: -11px;
+  transition: transform 500ms;
+  width: 46px;
+}
+path {
+  fill:none;
+  stroke:#2FB468;
+  stroke-dasharray: 150 150;
+  stroke-width:15;
+}
+.container.open:not(.flip) path {
+  animation: OpenRight 500ms;
+}
+.container.open.flip path {
+  animation: OpenLeft 500ms;
+}
+.container.i1 svg {
+  transform: translateX(0);
+}
+.container.i2 svg {
+  transform: translateX(50px);
+}
+.container.i3 svg {
+  transform: translateX(102px);
+}
+.container.i4 svg {
+  transform: translateX(154px);
+}
+.container.i5 svg {
+  transform: translateX(206px);
+}
+@keyframes OpenRight {
+  25% { stroke-dasharray: 100 150; }
+  60% { stroke-dasharray: 100 150; }
+  100% { stroke-dasharray: 150 150; }
+}
+@keyframes OpenLeft {
+  25% { stroke-dashoffset: -50px; }
+  60% { stroke-dashoffset: -50px; }
+  100% { stroke-dashoffset: 0; }
+}
