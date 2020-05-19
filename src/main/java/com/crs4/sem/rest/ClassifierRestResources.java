@@ -68,8 +68,7 @@ public class ClassifierRestResources {
 @Inject
 TextClassifier textClassifier;
 
-@Inject
-Logger log;
+public static Logger log=Logger.getLogger(ClassifierRestResources.class.getName());
 @Inject
 
 Analyzer analyzer;

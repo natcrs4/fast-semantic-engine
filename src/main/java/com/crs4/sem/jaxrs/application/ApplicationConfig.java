@@ -13,6 +13,7 @@ import org.aeonbits.owner.ConfigFactory;
 import org.glassfish.jersey.media.multipart.MultiPartFeature;
 
 import com.crs4.sem.config.SemEngineConfig;
+import com.crs4.sem.hk2.builder.ServiceBinder;
 import com.crs4.sem.rest.AuthorRestResources;
 import com.crs4.sem.rest.ClassifierRestResources;
 import com.crs4.sem.rest.NERRestReources;
@@ -24,7 +25,7 @@ import io.swagger.jaxrs.config.BeanConfig;
 import io.swagger.jaxrs.listing.ApiListingResource;
 import io.swagger.jaxrs.listing.SwaggerSerializers;
 
-@ApplicationPath("/rest")
+//@ApplicationPath("/rest")
 public class ApplicationConfig extends Application {
 	public ApplicationConfig() {
       
@@ -54,25 +55,25 @@ public class ApplicationConfig extends Application {
         System.out.println("REST configuration starting: getClasses()");            
         
 //      
-//        resources.add(com.crs4.sem.rest.filters.CORSFilter.class);
-//        //features
-//        //this will register Jackson JSON providers
-//        resources.add(org.glassfish.jersey.jackson.JacksonFeature.class);
-//        //we could also use this:
-//        //resources.add(com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider.class);
-//        
-//        //instead let's do it manually:
-//        resources.add(com.crs4.sem.rest.jaxrs.provider.MyJacksonJsonProvider.class);
-//        resources.add(com.crs4.sem.rest.DocumentRestResources.class);
-//        resources.add(TaxonomyRestResuorces.class);
-//        resources.add(AuthorRestResources.class);
-//        resources.add(NERRestReources.class);
-//        resources.add(ApiListingResource.class);
-//        resources.add(SwaggerSerializers.class);
-//        resources.add(ClassifierRestResources.class);
-//        resources.add(MultiPartFeature.class);
-//        resources.add(ShadoRestResources.class);
-//        resources.add(SemanticEngineRestResources.class);
+        resources.add(com.crs4.sem.rest.filters.CORSFilter.class);
+        //features
+        //this will register Jackson JSON providers
+        resources.add(org.glassfish.jersey.jackson.JacksonFeature.class);
+        //we could also use this:
+        //resources.add(com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider.class);
+        
+        //instead let's do it manually:
+        resources.add(com.crs4.sem.rest.jaxrs.provider.MyJacksonJsonProvider.class);
+        resources.add(com.crs4.sem.rest.DocumentRestResources.class);
+        resources.add(TaxonomyRestResuorces.class);
+        resources.add(AuthorRestResources.class);
+        resources.add(NERRestReources.class);
+        resources.add(ApiListingResource.class);
+        resources.add(SwaggerSerializers.class);
+        resources.add(ClassifierRestResources.class);
+        resources.add(MultiPartFeature.class);
+        resources.add(ShadoRestResources.class);
+        resources.add(SemanticEngineRestResources.class);
         //resources.add(it.crs4.stt.recommender.filters.CORSFilter.class);
         
         //==> we could also choose packages, see below getProperties()

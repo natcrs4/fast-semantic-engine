@@ -78,8 +78,7 @@ public class DocumentRestResources {
 
 	@Inject
 	TextClassifier textClassifier;
-	@Inject
-	private Logger log;
+	public static Logger log=Logger.getLogger(DocumentRestResources.class.getName());
 
 	@Inject
 
@@ -94,9 +93,9 @@ public class DocumentRestResources {
 	@Inject
 	private TaxonomyService taxonomyService;
 
-	@Inject
-	
-	private LuceneService luceneService;
+//	@Inject
+//	
+//	private LuceneService luceneService;
 	
 	@Inject
 	
@@ -129,7 +128,7 @@ public class DocumentRestResources {
 			from_date = df.parse(from);
 		if (to != null)
 			to_date = df.parse(to);
-		NewSearchResult searchResult = this.luceneService.parseSearch(text, "", from_date, to_date, start, maxresults, false, analyzer, false);
+		NewSearchResult searchResult = this.documentService.parseSearch(text, "", from_date, to_date, start, maxresults, false, analyzer, false);
 		List<NewDocument> duplicated = documentService.removeDuplicated(searchResult.getDocuments(),threshold);
 		searchResult.setDuplicated(duplicated);
 		return searchResult;

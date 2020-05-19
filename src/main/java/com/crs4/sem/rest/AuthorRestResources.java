@@ -24,18 +24,14 @@ import io.swagger.annotations.ApiOperation;
 
 @Path("/authors")
 @Api(value = "Authors", description = "Groups a list of API Authors")
-
 public class AuthorRestResources {
 
 	@Inject
-
     private AuthorService authorService;
 
-	@Inject
-	private Logger log;
+	public static Logger log=Logger.getLogger(AuthorRestResources.class.getName());
 	
 	@Inject
-
 	private Analyzer  analyzer;
 	
 	@GET

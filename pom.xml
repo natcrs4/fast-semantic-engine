@@ -16,6 +16,7 @@
 		<metrics.version>3.2.2</metrics.version>
 	</properties>
 	<build>
+	<finalName>fast-semantic-engine</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -32,6 +33,19 @@
 				<version>2.3</version>
 				<configuration>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
+                    <finalName>fast-semantic-engine</finalName>
+					<webResources>
+						<resource>
+							<!-- this is relative to the pom.xml directory -->
+							<directory>src/main/resources/swagger-ui/</directory>
+							<targetPath>docs</targetPath>
+						</resource>
+<!-- 						<resource> -->
+<!-- 							<directory>configurations/sosengine</directory> -->
+<!-- 							<targetPath>WEB-INF/classes</targetPath> -->
+<!-- 						</resource> -->
+					</webResources>
+
 				</configuration>
 			</plugin>
 			<plugin>
@@ -40,7 +54,7 @@
 				<version>2.2</version>
 				<configuration>
 					<port>8080</port>
-					<path>/jersey-app</path>
+					<path>/fast-semantic-engine</path>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -48,23 +62,28 @@
 	</build>
 	<dependencies>
 		<dependency>
-		
+
 			<groupId>io.swagger</groupId>
 			<artifactId>swagger-jersey2-jaxrs</artifactId>
 			<version>1.5.9</version>
 		</dependency>
 			<dependency>
+					<groupId>org.jboss.logging</groupId>
+					<artifactId>jboss-logging</artifactId>
+					<version>3.3.0.Final</version>
+				</dependency>
+		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>1.16.18</version>
 		</dependency>
-			<dependency>
+		<dependency>
 			<groupId>org.glassfish.jersey.media</groupId>
 			<artifactId>jersey-media-json-jackson</artifactId>
 			<version>${jersey.version}</version>
 			<!-- <scope>provided</scope> -->
 		</dependency>
-			<dependency>
+		<dependency>
 			<groupId>io.dropwizard.metrics</groupId>
 			<artifactId>metrics-jersey2</artifactId>
 			<version>${metrics.version}</version>
@@ -81,8 +100,18 @@
 			<version>${jersey.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-multipart</artifactId>
+			<version>${jersey.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>org.glassfish.jersey.containers</groupId>
 			<artifactId>jersey-container-servlet</artifactId>
+			<version>${jersey.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-servlet-core</artifactId>
 			<version>${jersey.version}</version>
 		</dependency>
 		<dependency>
